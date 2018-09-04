@@ -1,26 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package servico;
 
 import javax.jws.WebService;
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
 
-/**
- *
- * @author caio
- */
 @WebService(serviceName = "ServicoCalculadora")
 public class ServicoCalculadora {
 
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
+    @WebMethod(operationName = "somar")
+    public double processaSoma (double termo1, double termo2) {
+        return termo1 + termo2;
+    }
+    
+    @WebMethod(operationName = "subtrair")
+    public double processaSubtracao (double termo1, double termo2) {
+        return termo1 - termo2;
+    }
+    
+    @WebMethod(operationName = "multiplicacao")
+    public double processaMultiplicacao (double termo1, double termo2) {
+        return termo1 * termo2;
+    }
+    
+    @WebMethod(operationName = "dividir")
+    public double processaDivisao (double termo1, double termo2) {
+        if (termo2 > 0) {
+            return termo1 / termo2;
+        } else {
+            return 0;
+        }
     }
 }
